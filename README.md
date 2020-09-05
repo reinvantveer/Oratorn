@@ -1,5 +1,6 @@
 # Oratorn
 A space invaders-like remake in Pygame
 
-# It has:
-- [x] A dummy background image
+# It:
+- [x] Has a dummy background image
+- [x] Drops an image object somewhere randomly at the top of the screen
