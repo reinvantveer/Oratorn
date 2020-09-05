@@ -10,8 +10,12 @@ def main():
 
     pygame.display.set_caption('Oratorn')
 
+    background_image = pygame.image.load('assets/images/pygame_logo.gif')
+
     while True:
         FPS_CLOCK.tick(10)
+
+        screen.blit(background_image, (0, 0))
 
         # Event handling
         events = pygame.event.get()
@@ -19,11 +23,11 @@ def main():
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
-                    exit()
+                    quit()
 
             if event.type == pygame.QUIT:
                 pygame.quit()
-                exit()
+                quit()
 
         pygame.display.flip()
 
