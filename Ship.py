@@ -9,4 +9,4 @@ class Ship:
         self.ship_image_x_size, self.ship_y_size = self.ship_image.get_rect().size
         self.ship_x_pos = randint(0, display_extents[0] - self.ship_image_x_size)
         self.ship_y_pos = 0
-        self.speed = 10
+        self.speed = 5
