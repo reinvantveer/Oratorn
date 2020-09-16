@@ -11,6 +11,8 @@ FPS_CLOCK = pygame.time.Clock()
 
 def main():
     pygame.init()
+    pygame.font.init()  # Initialize text rendering
+
     screen = pygame.display.set_mode(DISPLAY_EXTENTS, pygame.DOUBLEBUF)
 
     pygame.display.set_caption('Oratorn')
@@ -35,7 +37,7 @@ def main():
         for ship in ships:
             # Set the ship image
             ship.ship_y_pos += ship.speed
-            screen.blit(ship.ship_image, (ship.ship_x_pos, ship.ship_y_pos))
+            ship.render(screen)
 
             # If the spaceship touches the bottom, you lose
             if ship.ship_y_pos > DISPLAY_EXTENTS[1] - ship.ship_y_size:

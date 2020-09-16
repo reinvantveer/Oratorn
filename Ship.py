@@ -16,3 +16,16 @@ class Ship:
         self.ship_x_pos = randint(0, display_extents[0] - self.ship_x_size)
         self.ship_y_pos = 0
         self.speed = 5
+
+        # set a taks to solve by the user
+        self.task = '1 + 1'
+        self.solution = '2'
+        self.font = pygame.font.SysFont('Comic Sans MS', 30)
+
+    def render(self, screen) -> None:
+        screen.blit(self.ship_image, (self.ship_x_pos, self.ship_y_pos))
+        task_surface = self.font.render(self.task, False, (0, 0, 0))
+
+        bottom = self.ship_y_pos + self.ship_y_size
+        screen.blit(task_surface, (self.ship_x_pos, bottom))
+
