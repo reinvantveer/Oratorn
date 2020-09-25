@@ -18,8 +18,10 @@ class Ship:
         self.speed = 5
 
         # set a taks to solve by the user
-        self.task = '1 + 1'
-        self.solution = '2'
+        first_number = randint(1, 40)
+        second_number = randint(1, 40)
+        self.task = f'{first_number} + {second_number}'
+        self.solution = str(first_number + second_number)
         self.font = pygame.font.SysFont('Comic Sans MS', 30)
 
     def render(self, screen) -> None:
