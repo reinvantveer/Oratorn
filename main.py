@@ -4,6 +4,7 @@ import pygame
 from numpy import random
 
 from Ship import Ship
+from game.InputBox import InputBox
 
 DISPLAY_EXTENTS = (1024, 768)
 FPS_CLOCK = pygame.time.Clock()
@@ -21,6 +22,7 @@ def main():
     background = pygame.transform.scale(background, DISPLAY_EXTENTS)
 
     ships: List[Ship] = []
+    input_box = InputBox(DISPLAY_EXTENTS)
 
     running = True
     while running:
@@ -43,6 +45,8 @@ def main():
             if ship.ship_y_pos > DISPLAY_EXTENTS[1] - ship.ship_y_size:
                 running = False
 
+        input_box.render(screen)
+
         # Event handling
         events = pygame.event.get()
         for event in events:
@@ -56,6 +60,16 @@ def main():
 
                 if event.key == pygame.K_DOWN:
                     ships[0].speed -= 1
+
+                # if the two is pressed: destroy the ship
+                if event.key == pygame.K_2:
+                    input_box.text += '2'
+                    print(input_box.text)
+                    if len(ships) > 0:
+                        ships.pop(0)
+
+                # keys = [pygame.key.name(index) for index, press in enumerate(pygame.key.get_pressed()) if press]
+                # print(keys)
 
             if event.type == pygame.QUIT:
                 pygame.quit()
